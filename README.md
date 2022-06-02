@@ -10,7 +10,7 @@ Provides a widget for enter PIN/OTP/password etc on Android 4.1+ (API 16).
 ## Dependency
 
 dependencies {
-   implementation 'com.smart.custompinview.CustomPinView:1.0.0'
+   implementation 'com.github.kumar-sanju:CustomPinView:Tag'
 }
 ```
 
