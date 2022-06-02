@@ -7,27 +7,6 @@ Provides a widget for enter PIN/OTP/password etc on Android 4.1+ (API 16).
 <p><img src="screenshots/styles.png" width="35%" />
 <img src="screenshots/input.gif" width="35%" /></p>
 
-## Dependency
-
-dependencies {
-   implementation 'com.github.kumar-sanju:CustomPinView:Tag'
-}
-```
-
-### MavenCentral
-
-``` Groovy
-repositories {
-    maven {
-        mavenCentral()
-    }
-}
-
-dependencies {
-   implementation 'com.github.kumar-sanju:CustomPinView:Tag'
-}
-```
-
 ## Usage
 
 CustomPinView inherits from EditText, which means you can use all the APIs from EditText.
