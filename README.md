@@ -24,7 +24,7 @@ repositories {
 }
 
 dependencies {
-   implementation 'com.smart.custompinview.CustomPinView:1.0.0'
+   implementation 'com.github.kumar-sanju:CustomPinView:Tag'
 }
 ```
 
