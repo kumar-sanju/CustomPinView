@@ -1,5 +1,6 @@
 package com.smart.custompinview;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -11,12 +12,17 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.res.ResourcesCompat;
 
-public class MainActivity extends AppCompatActivity {
+import com.smart.custompinview.OtherPinActivity.OtherPinActivity;
+
+public class MainActivity extends AppCompatActivity implements CheckBox.OnCheckedChangeListener {
 
     private static final String TAG = "MainActivity";
 
@@ -24,6 +30,17 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        ((CustomPinView) findViewById(R.id.firstPinView2)).setAnimationEnable(true);
+        ((CustomPinView) findViewById(R.id.secondPinView2)).setAnimationEnable(true);
+        ((CheckBox) findViewById(R.id.firstPasswordHidden)).setOnCheckedChangeListener(this);
+        ((CheckBox) findViewById(R.id.secondPasswordHidden)).setOnCheckedChangeListener(this);
+
+
+        final CustomPinView customPin = findViewById(R.id.customPin);
+        customPin.requestFocus();
+        InputMethodManager inputMethod = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        inputMethod.toggleSoftInput(InputMethodManager.SHOW_FORCED, InputMethodManager.HIDE_IMPLICIT_ONLY);
 
         final CustomPinView customPinView = findViewById(R.id.secondPinView);
         customPinView.setTextColor(
@@ -79,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_open_second_act:
-                startActivity(new Intent(this, SecondActivity.class));
+                startActivity(new Intent(this, OtherPinActivity.class));
                 return true;
         }
         return super.onOptionsItemSelected(item);
@@ -125,5 +142,13 @@ public class MainActivity extends AppCompatActivity {
                 TextUtils.getChars(this, start, end, dest, off);
             }
         }
+    }
+
+    @Override
+    public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
+        if (compoundButton.getId() == R.id.firstPasswordHidden)
+            ((CustomPinView) findViewById(R.id.firstPinView2)).setPasswordHidden(isChecked);
+        else
+            ((CustomPinView) findViewById(R.id.secondPinView2)).setPasswordHidden(isChecked);
     }
 }

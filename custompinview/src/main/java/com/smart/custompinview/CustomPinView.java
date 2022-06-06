@@ -22,6 +22,7 @@ import android.text.TextUtils;
 import android.text.method.MovementMethod;
 import android.text.method.TransformationMethod;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.ActionMode;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -328,6 +329,7 @@ public class CustomPinView extends AppCompatEditText {
         super.drawableStateChanged();
 
         if (mLineColor == null || mLineColor.isStateful()) {
+            Log.d("Sanju", "drawableStateChanged: "+mLineColor);
             updateColors();
         }
     }

@@ -15,6 +15,27 @@
         tools:context=".MainActivity">
 
         <com.smart.custompinview.CustomPinView
+            android:id="@+id/customPin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:inputType="number"
+            android:textColor="#fff"
+            android:textSize="20sp"
+            android:elevation="10dp"
+            app:itemHeight="50dp"
+            app:itemWidth="50dp"
+            android:itemBackground="#354253"
+            app:itemSpacing="8dp"
+            app:lineColor="#533535"
+            app:viewType="rectangle"
+            android:cursorVisible="false"
+            android:visibility="gone"
+            app:itemCount="6"
+            style="@style/CustomPinWidget.CustomPinView"
+            app:itemRadius="@dimen/pv_pin_view_item_radius" />
+
+        <com.smart.custompinview.CustomPinView
             android:id="@+id/firstPinView"
             style="@style/CustomPinWidget.CustomPinView"
             android:layout_width="wrap_content"
@@ -81,5 +102,74 @@
             android:textColor="@color/colorAccent"
             app:itemCount="1" />
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+            <TextView
+                android:id="@+id/firstLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/firstPinView2"
+                android:layout_alignParentTop="true"
+                android:text="@string/pin_label" />
+
+            <com.smart.custompinview.CustomPinView
+                android:id="@+id/firstPinView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/firstLabel"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="@dimen/common_padding"
+                android:inputType="number"
+                android:textColor="@color/text_colors"
+                app:itemRadius="@dimen/pv_pin_view_item_radius" />
+
+            <CheckBox
+                android:id="@+id/firstPasswordHidden"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignRight="@+id/firstPinView2"
+                android:layout_alignBaseline="@+id/firstLabel"
+                android:checked="false"
+                android:text="hidden" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+            <TextView
+                android:id="@+id/secondLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/secondPinView2"
+                android:layout_alignParentTop="true"
+                android:text="@string/password_label" />
+
+            <com.smart.custompinview.CustomPinView
+                android:id="@+id/secondPinView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/secondLabel"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="@dimen/common_padding"
+                android:inputType="numberPassword"
+                android:textColor="@color/line_colors"
+                android:cursorVisible="false"
+                app:lineColor="@color/line_colors"
+                app:itemRadius="@dimen/pv_pin_view_item_radius" />
+
+            <CheckBox
+                android:id="@+id/secondPasswordHidden"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignRight="@+id/secondPinView2"
+                android:layout_alignBaseline="@+id/secondLabel"
+                android:checked="true"
+                android:text="hidden" />
+        </RelativeLayout>
+
     </LinearLayout>
+
 </ScrollView>

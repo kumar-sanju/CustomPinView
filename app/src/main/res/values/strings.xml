@@ -2,5 +2,5 @@
     <string name="app_name">CustomPinView</string>
     <string name="password_label">Password:</string>
     <string name="pin_label">PIN:</string>
-    <string name="label_second_activity">SecondActivity</string>
+    <string name="label_second_activity">OtherPinView</string>
 </resources>
