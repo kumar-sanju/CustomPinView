@@ -20,11 +20,13 @@ import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.res.ResourcesCompat;
 
+import com.smart.customotpview.OtpView;
 import com.smart.custompinview.OtherPinActivity.OtherPinActivity;
 
 public class MainActivity extends AppCompatActivity implements CheckBox.OnCheckedChangeListener {
 
     private static final String TAG = "MainActivity";
+    private OtpView otpView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

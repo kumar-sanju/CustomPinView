@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
@@ -51,7 +52,7 @@ public class OtherPinActivity extends AppCompatActivity {
         otpET3333 = findViewById(R.id.otpET3333);
         otpET4444 = findViewById(R.id.otpET4444);
 
-        otp();
+//        otp();
 
 //        this.otpET11.addTextChangedListener(new GenericTextWatcher(otpET11));
 //        this.otpET22.addTextChangedListener(new GenericTextWatcher(otpET22));
@@ -67,10 +68,10 @@ public class OtherPinActivity extends AppCompatActivity {
 
         showKeyBoard(otpET111);
 
-        this.otpET1111.addTextChangedListener(new GenericTextWatcher(otpET1111));
-        this.otpET2222.addTextChangedListener(new GenericTextWatcher(otpET2222));
-        this.otpET3333.addTextChangedListener(new GenericTextWatcher(otpET3333));
-        this.otpET4444.addTextChangedListener(new GenericTextWatcher(otpET4444));
+//        this.otpET1111.addTextChangedListener(new GenericTextWatcher(otpET1111));
+//        this.otpET2222.addTextChangedListener(new GenericTextWatcher(otpET2222));
+//        this.otpET3333.addTextChangedListener(new GenericTextWatcher(otpET3333));
+//        this.otpET4444.addTextChangedListener(new GenericTextWatcher(otpET4444));
 
     }
 
@@ -314,73 +315,56 @@ public class OtherPinActivity extends AppCompatActivity {
 //        }
 //    }
 
-    public class GenericTextWatcher implements TextWatcher {
-        private View view;
-
-        GenericTextWatcher(View view) {
-            this.view = view;
-        }
-
-        @Override
-        public void afterTextChanged(Editable s) {
-            if (s.length() > 0) {
-                if (selectionPosition == 0) {
-                    selectionPosition = 1;
-                    showKeyBoard(otpET2222);
-                }
-                else if (selectionPosition == 1) {
-                    selectionPosition = 2;
-                    showKeyBoard(otpET3333);
-                }
-                else if (selectionPosition == 2) {
-                    selectionPosition = 3;
-                    showKeyBoard(otpET4444);
-                }
-                else {
-                    submitBtn.setText("Clicked");
-                }
-            }
-        }
-
-        @Override
-        public void beforeTextChanged(CharSequence arg0, int arg1, int arg2, int arg3) {
-        }
-
-        @Override
-        public void onTextChanged(CharSequence arg0, int arg1, int arg2, int arg3) {
-            if (arg0.length() == 0) {
-                if (selectionPosition == 3) {
-                    selectionPosition = 2;
-                    showKeyBoard(otpET3333);
-                }
-                else if (selectionPosition == 2) {
-                    selectionPosition = 1;
-                    showKeyBoard(otpET2222);
-                }
-                else if (selectionPosition == 1) {
-                    selectionPosition = 0;
-                    showKeyBoard(otpET1111);
-                }
-            }
-        }
-
-        private void stayOnCurrentEdit(EditText editText) {
-            editText.setText(editText.getText().toString().substring(0, 1));
-            editText.setSelection(editText.getText().length());
-        }
-
-        private void moveToPreviousEdit(EditText editText) {
-            editText.setSelection(editText.getText().length());
-            editText.requestFocus();
-        }
-
-        private void moveToNextEdit(EditText editText2, EditText editText1) {
-            editText2.setText(editText1.getText().toString().substring(1, 2));
-            editText2.requestFocus();
-            editText2.setSelection(editText2.getText().length());
-            editText1.setText(editText1.getText().toString().substring(0, 1));
-        }
-    }
+//    public class GenericTextWatcher implements TextWatcher {
+//        private View view;
+//
+//        GenericTextWatcher(View view) {
+//            this.view = view;
+//        }
+//
+//        @Override
+//        public void afterTextChanged(Editable s) {
+//            if (s.length() > 0) {
+//                if (selectionPosition == 0) {
+//                    selectionPosition = 1;
+//                    showKeyBoard(otpET2222);
+//                }
+//                else if (selectionPosition == 1) {
+//                    selectionPosition = 2;
+//                    showKeyBoard(otpET3333);
+//                }
+//                else if (selectionPosition == 2) {
+//                    selectionPosition = 3;
+//                    showKeyBoard(otpET4444);
+//                }
+//                else {
+//                    submitBtn.setText("Clicked");
+//                }
+//            }
+//        }
+//
+//        @Override
+//        public void beforeTextChanged(CharSequence arg0, int arg1, int arg2, int arg3) {
+//        }
+//
+//        @Override
+//        public void onTextChanged(CharSequence arg0, int arg1, int arg2, int arg3) {
+//            if (arg0.length() == 0) {
+//                if (selectionPosition == 3) {
+//                    selectionPosition = 2;
+//                    showKeyBoard(otpET3333);
+//                }
+//                else if (selectionPosition == 2) {
+//                    selectionPosition = 1;
+//                    showKeyBoard(otpET2222);
+//                }
+//                else if (selectionPosition == 1) {
+//                    selectionPosition = 0;
+//                    showKeyBoard(otpET1111);
+//                }
+//            }
+//        }
+//    }
 
     private final TextWatcher textWatcher = new TextWatcher() {
         @Override
@@ -438,27 +422,27 @@ public class OtherPinActivity extends AppCompatActivity {
     }
 
 
-//    @Override
-//    public boolean onKeyUp(int keyCode, KeyEvent event) {
-//        if (keyCode == KeyEvent.KEYCODE_DEL) {
-//            if (selectionPosition == 3) {
-//                selectionPosition = 2;
-//                showKeyBoard(otpET333);
-//            }
-//            else if (selectionPosition == 2) {
-//                selectionPosition = 1;
-//                showKeyBoard(otpET222);
-//            }
-//            else if (selectionPosition == 1) {
-//                selectionPosition = 0;
-//                showKeyBoard(otpET111);
-//            }
-//            submitBtn.setText("Submit");
-//            return true;
-//        }
-//        else {
-//            return super.onKeyUp(keyCode, event);
-//        }
-//    }
+    @Override
+    public boolean onKeyUp(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_DEL) {
+            if (selectionPosition == 3) {
+                selectionPosition = 2;
+                showKeyBoard(otpET333);
+            }
+            else if (selectionPosition == 2) {
+                selectionPosition = 1;
+                showKeyBoard(otpET222);
+            }
+            else if (selectionPosition == 1) {
+                selectionPosition = 0;
+                showKeyBoard(otpET111);
+            }
+            submitBtn.setText("Submit");
+            return true;
+        }
+        else {
+            return super.onKeyUp(keyCode, event);
+        }
+    }
 
 }

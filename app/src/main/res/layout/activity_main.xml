@@ -14,6 +14,22 @@
         android:orientation="vertical"
         tools:context=".MainActivity">
 
+        <com.smart.customotpview.OtpView
+            android:id="@+id/otp_view"
+            style="@style/CustomOtpWidget.CustomOtpView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:inputType="number"
+            android:itemBackground="@drawable/bg_otp_item"
+            android:textColor="@android:color/black"
+            app:hideLineWhenFilled="true"
+            app:itemCount="6"
+            app:itemSpacing="6dp"
+            app:lineColor="@color/text_colors"
+            app:state_filled="true"
+            app:viewType="line" />
+
         <com.smart.custompinview.CustomPinView
             android:id="@+id/customPin"
             android:layout_width="wrap_content"
@@ -40,7 +56,6 @@
             style="@style/CustomPinWidget.CustomPinView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:cursorVisible="true"
             android:hint="Hint."
             android:inputType="text"
             android:itemBackground="@mipmap/ic_launcher"
@@ -120,7 +135,10 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/firstLabel"
                 android:layout_centerHorizontal="true"
-                android:layout_margin="@dimen/common_padding"
+                android:layout_marginStart="@dimen/common_padding"
+                android:layout_marginTop="@dimen/common_padding"
+                android:layout_marginEnd="@dimen/common_padding"
+                android:layout_marginBottom="@dimen/common_padding"
                 android:inputType="number"
                 android:textColor="@color/text_colors"
                 app:itemRadius="@dimen/pv_pin_view_item_radius" />
