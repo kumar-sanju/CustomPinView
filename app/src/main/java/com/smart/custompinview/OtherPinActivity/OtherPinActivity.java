@@ -22,7 +22,7 @@ public class OtherPinActivity extends AppCompatActivity {
     private EditText otpET111, otpET222, otpET333, otpET444;
     private EditText otpET1111, otpET2222, otpET3333, otpET4444;
     private int selectionPosition = 0;
-    Button submitBtn;
+    Button submitBtn, submitBtn2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +33,7 @@ public class OtherPinActivity extends AppCompatActivity {
         otpET2 = findViewById(R.id.otpET2);
         otpET3 = findViewById(R.id.otpET3);
         otpET4 = findViewById(R.id.otpET4);
+        submitBtn2 = findViewById(R.id.submitBtn2);
 
         otpET11 = findViewById(R.id.otpET11);
         otpET22 = findViewById(R.id.otpET22);
@@ -52,7 +53,7 @@ public class OtherPinActivity extends AppCompatActivity {
         otpET3333 = findViewById(R.id.otpET3333);
         otpET4444 = findViewById(R.id.otpET4444);
 
-//        otp();
+        otp();
 
 //        this.otpET11.addTextChangedListener(new GenericTextWatcher(otpET11));
 //        this.otpET22.addTextChangedListener(new GenericTextWatcher(otpET22));
@@ -86,6 +87,8 @@ public class OtherPinActivity extends AppCompatActivity {
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 //                otpET1.setEnabled(true);
                 otpET1.requestFocus();
+//                submitBtn2.setEnabled(false);
+//                submitBtn2.setBackgroundResource(R.color.purple_500);
             }
 
             @Override
@@ -93,12 +96,9 @@ public class OtherPinActivity extends AppCompatActivity {
                 if (otpET1.getText().toString().length() == 1) {
                     otpET2.requestFocus();
 //                    otpET1.setEnabled(false);
+//                    submitBtn2.setEnabled(false);
+//                    submitBtn2.setBackgroundResource(R.color.purple_500);
                 }
-            }
-
-            private void moveToPreviousEdit(EditText editText) {
-                editText.setSelection(editText.getText().length());
-                editText.requestFocus();
             }
         });
 
@@ -113,6 +113,8 @@ public class OtherPinActivity extends AppCompatActivity {
                 if (otpET2.getText().toString().length() == 0) {
 //                    otpET1.setEnabled(true);
                     otpET1.requestFocus();
+//                    submitBtn2.setEnabled(false);
+//                    submitBtn2.setBackgroundResource(R.color.purple_500);
                 }
             }
 
@@ -121,12 +123,9 @@ public class OtherPinActivity extends AppCompatActivity {
                 if (otpET2.getText().toString().length() == 1) {
                     otpET3.requestFocus();
 //                    otpET2.setEnabled(false);
+//                    submitBtn2.setEnabled(false);
+//                    submitBtn2.setBackgroundResource(R.color.purple_500);
                 }
-            }
-
-            private void moveToPreviousEdit(EditText editText) {
-                editText.setSelection(editText.getText().length());
-                editText.requestFocus();
             }
         });
 
@@ -141,6 +140,8 @@ public class OtherPinActivity extends AppCompatActivity {
                 if (otpET3.getText().toString().length() == 0) {
 //                    otpET2.setEnabled(true);
                     otpET2.requestFocus();
+//                    submitBtn2.setEnabled(false);
+//                    submitBtn2.setBackgroundResource(R.color.purple_500);
                 }
             }
 
@@ -149,12 +150,9 @@ public class OtherPinActivity extends AppCompatActivity {
                 if (otpET3.getText().toString().length() == 1) {
                     otpET4.requestFocus();
 //                    otpET3.setEnabled(false);
+//                    submitBtn2.setEnabled(false);
+//                    submitBtn2.setBackgroundResource(R.color.purple_500);
                 }
-            }
-
-            private void moveToPreviousEdit(EditText editText) {
-                editText.setSelection(editText.getText().length());
-                editText.requestFocus();
             }
         });
 
@@ -169,20 +167,17 @@ public class OtherPinActivity extends AppCompatActivity {
                 if (otpET4.getText().toString().length() == 0) {
 //                    otpET3.setEnabled(true);
                     otpET3.requestFocus();
+//                    submitBtn2.setEnabled(false);
+//                    submitBtn2.setBackgroundResource(R.color.purple_500);
                 }
             }
 
             @Override
             public void afterTextChanged(Editable editable) {
-//                if (otpET3.getText().toString().length() == 1) {
-//                    otpET4.requestFocus();
-//                    otpET3.setEnabled(false);
-//                }
-            }
-
-            private void moveToPreviousEdit(EditText editText) {
-                editText.setSelection(editText.getText().length());
-                editText.requestFocus();
+                if (otpET4.getText().toString().length() == 1) {
+                    submitBtn2.setEnabled(true);
+                    submitBtn2.setBackgroundResource(R.color.colorAccent);
+                }
             }
         });
     }

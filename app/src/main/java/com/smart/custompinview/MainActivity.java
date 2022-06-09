@@ -98,7 +98,8 @@ public class MainActivity extends AppCompatActivity implements CheckBox.OnChecke
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_open_second_act:
-                startActivity(new Intent(this, OtherPinActivity.class));
+//                startActivity(new Intent(this, OtherPinActivity.class));
+                startActivity(new Intent(this, SecondActivity.class));
                 return true;
         }
         return super.onOptionsItemSelected(item);
