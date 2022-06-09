@@ -1,3 +1,5 @@
+# Without using library please go to second activity
+You can access otp or password view without using library, by using the second activity where you can find all details
 # CustomPinView
 New customized PinViw for OTP and Password
 # PinView
