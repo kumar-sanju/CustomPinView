@@ -16,7 +16,7 @@ Add CustomPinView in your layout.
 ``` xml
 <com.smart.custompinview.CustomPinView
     android:id="@+id/firstPinView"
-    style="@style/PinWidget.PinView"
+    style="@style/PinWidget.CustomPinView"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:cursorVisible="true"
