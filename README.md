@@ -1,11 +1,7 @@
 # Without using library please go to second activity
 You can access otp or password view without using library, by using the second activity where you can find all details
 # CustomPinView
-New customized PinViw for OTP and Password
-# PinView
-
-<p><img src="screenshots/styles.png" width="35%" />
-<img src="screenshots/input.gif" width="35%" /></p>
+New customized CustomPinView for OTP and Password
 
 ## Usage
 
@@ -13,7 +9,7 @@ CustomPinView inherits from EditText, which means you can use all the APIs from 
 
 ### Step 1:
 
-Add PinView in your layout.
+Add CustomPinView in your layout.
 
 #### XML
 
